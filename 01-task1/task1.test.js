@@ -1,4 +1,4 @@
-const { isSumOfTwoExist } = require("./task1.js");
+const isSumOfTwoExist = require("./task1.js");
 
 test.each`
     array                      | target | expected | type
@@ -10,6 +10,7 @@ test.each`
     ${[]}                      | ${1}   | ${false} | ${"empty array"}
     ${[1]}                     | ${1}   | ${false} | ${"single-element"}
     ${[1, 1]}                  | ${1}   | ${false} | ${"no pair"}
+    ${[1, 1]}                  | ${2}   | ${true}  | ${"identical pair"}
 `(
     "Type: $type - array: $array; target: $target; expected return: $expected",
     ({ array, target, expected }) => {
