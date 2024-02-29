@@ -47,7 +47,7 @@ function isSumOfTwoExistOptimized(array, target) {
                     return true;
                 }
             } else {
-                if (negativeNumbers[pair] > 1) {
+                if (negativeNumbers[-pair] > 1) {
                     return true;
                 }
             }
@@ -57,7 +57,7 @@ function isSumOfTwoExistOptimized(array, target) {
                     return true;
                 }
             } else {
-                if (negativeNumbers[pair]) {
+                if (negativeNumbers[-pair]) {
                     return true;
                 }
             }

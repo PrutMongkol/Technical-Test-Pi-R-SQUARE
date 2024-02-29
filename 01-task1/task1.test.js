@@ -7,6 +7,8 @@ test.each`
     ${[1, 3, 5, 7, 16, 4]}     | ${18}  | ${false} | ${"standard"}
     ${[12, 17, 14, 11, 19, 8]} | ${20}  | ${true}  | ${"standard"}
     ${[1, 3, 5, -10, 15]}      | ${5}   | ${true}  | ${"standard"}
+    ${[1, 4, -9, -11]}         | ${-20} | ${true}  | ${"negative target"}
+    ${[1, 10, -9, -40]}        | ${-30} | ${true}  | ${"negative target"}
     ${[]}                      | ${1}   | ${false} | ${"empty array"}
     ${[1]}                     | ${1}   | ${false} | ${"single-element"}
     ${[1, 1]}                  | ${1}   | ${false} | ${"no pair"}
