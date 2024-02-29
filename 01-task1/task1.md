@@ -12,4 +12,4 @@ Input: `[1, 3, 5, 7, 16, 4]`, Target: `18`, Output: `false`.
 
 Input: `[12, 17, 14, 11, 19, 8]`, Target: `20` Output: `true`.
 
-Input: `[12, 17, 14, 11, 19, 8]`, Target: `30` Output: `false`.
+~~Input: `[12, 17, 14, 11, 19, 8]`, Target: `30` Output: `false`.~~ Incorrect test case (11 + 19 = 30)
