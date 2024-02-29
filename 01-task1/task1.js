@@ -1,7 +1,7 @@
 /*
 assumptions:
  - 'array' is an array of N integers
- - 0 <= N < 1e9
+ - -1e9 < array[k] < 1e9
  - 'target' is an integer
 */
 
@@ -29,6 +29,12 @@ function isSumOfTwoExistOptimized(array, target) {
 
     // counting integers in 'array'
     for (let i = 0; i < array.length; i++) {
+        const pair = target - array[i];
+        result = checkPair(pair, array[i], positiveNumbers, negativeNumbers);
+        if (result) {
+            return true;
+        }
+
         if (array[i] >= 0) {
             positiveNumbers[array[i]] = positiveNumbers[array[i]]
                 ? positiveNumbers[array[i]] + 1
