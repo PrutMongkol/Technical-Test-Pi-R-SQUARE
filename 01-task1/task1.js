@@ -25,46 +25,56 @@ time-optimized version
 function isSumOfTwoExistOptimized(array, target) {
     const positiveNumbers = [];
     const negativeNumbers = [];
+    let result = false;
 
     // counting integers in 'array'
     for (let i = 0; i < array.length; i++) {
-        if(array[i] >= 0) {
-            positiveNumbers[array[i]] = (positiveNumbers[array[i]]) ?
-                positiveNumbers[array[i]] + 1 :
-                1;
+        if (array[i] >= 0) {
+            positiveNumbers[array[i]] = positiveNumbers[array[i]]
+                ? positiveNumbers[array[i]] + 1
+                : 1;
         } else {
-            negativeNumbers[-array[i]] = (negativeNumbers[-array[i]]) ?
-                negativeNumbers[-array[i]] + 1 :
-                1;
+            negativeNumbers[-array[i]] = negativeNumbers[-array[i]]
+                ? negativeNumbers[-array[i]] + 1
+                : 1;
         }
     }
 
     for (let i = 0; i < array.length; i++) {
         const pair = target - array[i];
-        if (pair === array[i]) {
-            if (pair >= 0) {
-                if (positiveNumbers[pair] > 1) {
-                    return true;
-                }
-            } else {
-                if (negativeNumbers[-pair] > 1) {
-                    return true;
-                }
+        result = checkPair(pair, array[i], positiveNumbers, negativeNumbers);
+        if (result) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+function checkPair(pair, opposite, positiveNumbers, negativeNumbers) {
+    let result = false;
+    if (pair === opposite) {
+        if (pair >= 0) {
+            if (positiveNumbers[pair] > 1) {
+                result = true;
             }
         } else {
-            if (pair >= 0) {
-                if (positiveNumbers[pair]) {
-                    return true;
-                }
-            } else {
-                if (negativeNumbers[-pair]) {
-                    return true;
-                }
+            if (negativeNumbers[-pair] > 1) {
+                result = true;
+            }
+        }
+    } else {
+        if (pair >= 0) {
+            if (positiveNumbers[pair]) {
+                result = true;
+            }
+        } else {
+            if (negativeNumbers[-pair]) {
+                result = true;
             }
         }
     }
-    
-    return false;
+    return result;
 }
 
 module.exports = isSumOfTwoExistOptimized;
