@@ -22,3 +22,5 @@ function isSumOfTwoExist(array, target) {
     }
     return false;
 }
+
+module.exports = isSumOfTwoExist;
